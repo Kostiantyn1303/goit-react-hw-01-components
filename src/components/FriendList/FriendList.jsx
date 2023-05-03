@@ -15,4 +15,4 @@ export function FriendList({ friends }) {
     </List>
   );
 }
-FriendList.prototype = { friends: PropTypes.array };
+FriendList.prototype = { friends: PropTypes.arrayOf(PropTypes.shape({})) };

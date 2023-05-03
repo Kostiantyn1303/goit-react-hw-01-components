@@ -18,5 +18,12 @@ export function Statistics({ stats }) {
 }
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array,
+
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ),
 };

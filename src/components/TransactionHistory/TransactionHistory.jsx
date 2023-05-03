@@ -23,6 +23,13 @@ export function TransactionHistory({ items }) {
     </Table>
   );
 }
-TransactionHistory.prototype = {
-  items: PropTypes.array,
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ),
 };
