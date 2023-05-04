@@ -1,15 +1,15 @@
 import { Section, StatItems, StatList, Title, Text } from './Statistics.styled';
 import PropTypes from 'prop-types';
-export function Statistics({ stats }) {
+export function Statistics({ title, stats }) {
   return (
     <Section>
-      <Title>Upload stats</Title>
+      <Title>{title}</Title>
 
       <StatList>
-        {stats.map(stat => (
-          <StatItems key={stat.id}>
-            <Text>{stat.label}</Text> <br />
-            <Text>{stat.percentage}%</Text>
+        {stats.map(({ id, label, percentage }) => (
+          <StatItems key={id}>
+            <Text>{label}</Text> <br />
+            <Text>{percentage}%</Text>
           </StatItems>
         ))}
       </StatList>
@@ -18,7 +18,6 @@ export function Statistics({ stats }) {
 }
 Statistics.propTypes = {
   title: PropTypes.string,
-
   stats: PropTypes.arrayOf(
     PropTypes.exact({
       label: PropTypes.string.isRequired,
